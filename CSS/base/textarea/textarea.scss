@@ -1,0 +1,121 @@
+.form-write_to_us {
+	width: 100%;
+}
+.txtar_1 {
+	height: 35px;
+	width: 50%;
+	resize: none;
+	line-height: 1.6;
+	text-align: center;
+	font-size: 15px;
+	color: $text_dark;
+	margin: 0 25% 30px 25%;
+	outline: none;
+	background: none;
+    border: none;
+    border-bottom: 1px solid $color-gray_light_min;
+}
+@media screen and (min-width:200px) and (max-width:480px) {
+	.txtar_1 {width: 100%; margin: 0 0 30px 0;}
+}
+.txtar_1:focus {
+	border-color: $color-turquoise;
+	color: $color-turquoise;
+}
+
+.txtar_1::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.txtar_1::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.txtar_1:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.txtar_1:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.txtar_1:focus::-webkit-input-placeholder {text-indent: 750px; transition: text-indent 0.3s ease;}
+.txtar_1:focus::-moz-placeholder          {text-indent: 750px; transition: text-indent 0.3s ease;}
+.txtar_1:focus:-moz-placeholder           {text-indent: 750px; transition: text-indent 0.3s ease;}
+.txtar_1:focus:-ms-input-placeholder      {text-indent: 750px; transition: text-indent 0.3s ease;}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+/*---download catalog------------------------------------------*/
+.input_download {
+	height: 35px;
+	width: 100%;
+	resize: none;
+	line-height: 1.6;
+	text-align: center;
+	font-size: 15px;
+	color: $text_dark;
+	margin: 0 0 20px 0;
+	outline: none;
+	background: none;
+	border: none;
+	border-bottom: 1px solid $color-gray_light_min;
+}
+@media screen and (min-width:200px) and (max-width:480px) {
+	.input_download {width: 100%; margin: 0 0 30px 0;}
+}
+.input_download:focus {
+	border-color: $color-turquoise;
+	color: $color-turquoise;
+}
+
+.input_download::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download:focus::-webkit-input-placeholder {text-indent: 750px; transition: text-indent 0.3s ease;}
+.input_download:focus::-moz-placeholder          {text-indent: 750px; transition: text-indent 0.3s ease;}
+.input_download:focus:-moz-placeholder           {text-indent: 750px; transition: text-indent 0.3s ease;}
+.input_download:focus:-ms-input-placeholder      {text-indent: 750px; transition: text-indent 0.3s ease;}
+
+
+.p_download {
+	  color: $text_light;
+	  text-align: center;
+	  text-transform: uppercase;
+	  font-family: 'Arial Narrow', Arial, sans-serif;
+  }
+
+.p_download_min {
+	color: $text_light;
+	text-align: center;
+	font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+/*--------------------------*/
+
+.input_download_size {
+	height: 35px;
+	width: 100%;
+	resize: none;
+	line-height: 1.6;
+	text-align: center;
+	font-size: 15px;
+	color: $text_dark;
+	margin: 0 0 20px 0;
+	outline: none;
+	background: none;
+	border: none;
+	border-bottom: 1px solid $color-gray_light_min;
+}
+@media screen and (min-width:200px) and (max-width:480px) {
+	.input_download_size {width: 100%; margin: 0 0 30px 0;}
+}
+.input_download_size:focus {
+	border-color: $color-turquoise;
+	color: $color-turquoise;
+}
+
+.input_download_size::-webkit-input-placeholder       {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download_size::-moz-placeholder                {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download_size:-moz-placeholder                 {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download_size:-ms-input-placeholder            {text-indent: 0px;   transition: text-indent 0.3s ease;}
+.input_download_size:focus::-webkit-input-placeholder {text-indent: 750px; transition: text-indent 0.3s ease;}
+.input_download_size:focus::-moz-placeholder          {text-indent: 750px; transition: text-indent 0.3s ease;}
+.input_download_size:focus:-moz-placeholder           {text-indent: 750px; transition: text-indent 0.3s ease;}
+.input_download_size:focus:-ms-input-placeholder      {text-indent: 750px; transition: text-indent 0.3s ease;}

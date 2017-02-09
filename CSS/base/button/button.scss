@@ -1,0 +1,23 @@
+.btn-write_to_us {
+	height: 50px;
+	width: 100px;
+	color: #3dc0f1;
+	background-color: $color-white;
+	border: 1px solid $color-turquoise;
+	@include user-select-none(none);
+	line-height: 50px;
+	font-size: 100%;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	left: calc(50% - 50px);
+
+}
+.btn-write_to_us:hover {
+	background-color: $text_hover;
+	border: 1px solid $text_hover;
+	color: $color-white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+	transition: 0.2s linear;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}

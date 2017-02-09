@@ -1,0 +1,169 @@
+/*---NAV----------------------------------------------------*/
+.menu {
+	width: 250px;
+	position: absolute;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 2;
+	background-color: $bg_main;
+}
+/*---MENU------------------------------------------*/
+.li-menu {
+	height: 50px;
+	transition-duration: 0.4s;
+	line-height: 50px;
+	color: $color-white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	font-size: 90%;
+	list-style-type: none;
+	margin: 10px;
+	border: 1px solid transparent;
+	background-color: $activ_first;
+	border-radius: 4px;
+	font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.li-menu:hover {
+	color: $text_hover;
+	border: 1px solid $text_hover;
+	cursor: pointer;
+	background-color: $bg_main;
+}
+
+.li-menu > a {
+	width: 100%;
+	display: inline-block;
+	padding: 0 20px 0 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white;
+	text-align: left;
+}
+
+.li-menu > a:hover {
+	cursor: pointer;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	color: $color-turquoise;
+}
+
+/*---SLIDER-------------------------------*/
+.slider-container {
+	height: 200px;
+	position: relative;
+	padding: 20px;
+	text-align: center;
+	font-family: 'SourceCodePro-Regular';
+	text-transform: uppercase;
+	background-color: $text_hover;
+	margin: 10px;
+	border-radius: 4px;
+}
+.slider-box {
+	width:190px;
+	height:200px;
+	overflow:hidden;
+}
+.slider {
+	position:relative;
+	width:10000px;
+	height:210px;
+}
+.slider img {
+	float:left;
+	z-index:0;
+	height: 200px;
+	width: 190px;
+}
+
+
+/*---MOBILE------------------------------------*/
+@media screen and (min-width:200px) and (max-width:480px) {
+	.slider-container {display: none;}
+	.menu {height: auto; top: 50px; float: left; position: absolute; position: fixed; left: -300px; transition: left 400ms cubic-bezier(0.17,0.04,0.03,0.94); padding-top: 0px;}
+
+	label.btn {
+	display: block;
+	position: absolute;
+	left: 25px;
+	top: 10px;
+	position: fixed;
+	cursor: pointer;
+	width: 60px;
+	color: $text_hover;
+	font-size: 30px;
+	-webkit-font-smoothing: antialiased;
+	transition: all 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+	z-index: 150;
+}
+
+	label.btn:after {content: '\f0c9'; font: normal 30px/1 FontAwesome; text-decoration: inherit;}
+	.open:checked ~ .menu {left: 0}
+	.open:checked ~ label.btn {left: 25px;}
+	.open:checked + label.btn {color: $color-tomato;}
+	.open:checked + label.btn:after {content: '\f00d'; font: normal 30px/1 FontAwesome;}
+}
+
+/*---BG------------------------------------------------------*/
+.body_slides {
+    list-style:none;
+    margin:0;
+    padding:0;
+    z-index:-2; 
+    background: $bg_main;
+}
+.body_slides,
+.body_slides:after {
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+}
+.body_slides li {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-size:cover;
+    background-repeat:none;
+    background-position: center center;
+    opacity:0;
+    -webkit-animation: anim_slides 12s linear infinite 0s;
+    -moz-animation: anim_slides 12s linear infinite 0s;
+    -o-animation: anim_slides 12s linear infinite 0s;
+    -ms-animation: anim_slides 12s linear infinite 0s;
+    animation: anim_slides 12s linear infinite 0s;
+}
+.body_slides li:nth-child(1) {
+	background-image: url(../Images/bg1.jpg) 
+}
+.body_slides li:nth-child(2) {
+	-webkit-animation-delay: 6.0s;
+	-moz-animation-delay: 6.0s;
+	-o-animation-delay: 6.0s;
+	-ms-animation-delay: 6.0s;
+	background-image: url(../Images/bg2.jpg) 
+}
+
+@-webkit-keyframes anim_slides {
+	0% {opacity:0;}
+	6% {opacity:1;}
+	24% {opacity:1;}
+	30% {opacity:0;}
+	100% {opacity:0;}
+}
+@-moz-keyframes anim_slides {
+	0% {opacity:0;}
+	6% {opacity:1;}
+	24% {opacity:1;}
+	30% {opacity:0;}
+	100% {opacity:0;}
+}
+@keyframes anim_slides {
+	0% {opacity:0;}
+	3% {opacity:1;}
+	33% {opacity:1;}
+	38% {opacity:0;}
+	100% {opacity:0;}
+}

@@ -1,0 +1,29 @@
+/*---local palette-----------------------------*/
+$color-white: white;             /*main bg page*/
+$color-gray_light_max: #f1f1f1;  /*main bg all*/
+$color-gray_light_min: #8b95a2;  /*main for text in white*/
+$color-gray_standart: grey;      /*main standart color*/
+$color-gray_dark_min: #666;      /*text all + border*/
+$color-gray_dark_max: #333;      /*text preview catalog*/
+$color-shadow: #2D2020;          /*text shadow*/
+$color-tomato: tomato;           /*main alarm color*/
+$color-turquoise: #3dc0f1;       /*main second color*/
+
+/*---global palette-----------------------------*/
+$bg_main: $color-gray_light_max;
+$bg_page: $color-white;
+$activ_first: $color-turquoise;
+$activ_second: $color-tomato;
+$footer-bg: $color-gray_dark_max;
+$footer-text: $color-gray_dark_min;
+$text_dark: $color-gray_dark_min;
+$text_dark_max: $color-gray_dark_max;
+$text_light: $color-gray_light_min;
+$text_hover: $color-turquoise;
+
+/*---миксины---*/
+@mixin user-select-none($status) {
+	user-select: $status;
+	-webkit-user-select: $status;
+	-moz-user-select: $status;
+}
