@@ -5,11 +5,15 @@ if (!$_SESSION['admin']) die ( '<p><a href="/php/in/index.php">Войти в п�
 <?php
 require_once "pass_with_db.php";
 
-$link = mysql_connect($db_host, $db_user, $db_pass);
-mysql_select_db($db_database, $link) or die("Нет соединения с БД".mysql_error());
-mysql_query("SET names $db_charset");
+$link = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
-mysql_query("set names utf8");
+$db_select = mysqli_select_db($link, $db_name);
+if (!$db_select) {
+    error_log("Database selection failed: " . mysqli_error($connection));
+    die('Internal server error');
+}
+
+mysqli_query($link, "SET names $db_charset");
 
 //добавления описания ....
 $artic = $_POST['artic'];
@@ -73,7 +77,16 @@ if (!empty($_FILES['uploadfile']['name']))
     if(move_uploaded_file($_FILES['uploadfile']['tmp_name'], $uploadfile))
     {
       $tes = "INSERT INTO `".$_catalog_."` (`artic`, `name`, `name_model`, `text`, `price`, `img`, `s_1`, `length_1`, `volume_1`,`s_2`, `length_2`, `volume_2`,`s_3`, `length_3`, `volume_3`,`s_4`, `length_4`, `volume_4`,`s_5`, `length_5`, `volume_5`,`s_6`, `length_6`, `volume_6`,`s_7`, `length_7`, `volume_7`,`s_8`, `length_8`, `volume_8`,`s_9`, `length_9`, `volume_9`,`s_10`, `length_10`, `volume_10`) VALUES ('$artic', '$name', '$name_model', '$text', '$price', '$uploadfile', '$s_1', '$length_1', '$volume_1', '$s_2', '$length_2', '$volume_2', '$s_3', '$length_3', '$volume_3', '$s_4', '$length_4', '$volume_4', '$s_5', '$length_5', '$volume_5', '$s_6', '$length_6', '$volume_6', '$s_7', '$length_7', '$volume_7', '$s_8', '$length_8', '$volume_8', '$s_9', '$length_9', '$volume_9', '$s_10', '$length_10', '$volume_10')";
-      $res = mysql_query($tes);
+      
+        // echo $tes;
+      
+      $res = mysqli_query($link, $tes);
+      
+      if(!$res) {
+          echo "FALSE";
+      }
+      
+      
       if($res) echo "Файл упешно загружен";
       else echo     "Путь не добавлен в базу данных, но файл загружен ".mysql_error();
     } else echo     "Файл не загружен, ";
@@ -243,7 +256,7 @@ if (!empty($_FILES['uploadfile']['name']))
   ?>
     <br><hr><br>
     <select name="table_dir_img">
-      <option value="../Images/catalogs/1/">Зимние комбинезоны</option>
+      <option value="../Images/catalogs/1/" selected >Зимние комбинезоны</option>
       <option value="../Images/catalogs/2/">Зимние попоны</option>
       <option value="../Images/catalogs/3/">Осенне-зимние дубленки</option>
       <option value="../Images/catalogs/4/">Жилетки</option>

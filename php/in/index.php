@@ -51,7 +51,7 @@
 </body>
 </html>
 
-    <?
+    <?php
         exit;}}$_SESSION['admin'] = false;
         include ('config.php');
         function not_logged_in (){echo '
