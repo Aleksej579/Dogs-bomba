@@ -1,5 +1,5 @@
-<?php session_start ();
-if (!$_SESSION['admin']) die ( '<p><a href="/php/in/index.php">Войти в панель администратора</a></p>');
+<?php session_start();
+if (!isset($_SESSION['admin'])) die ( '<p><a href="/php/in/index.php">Войти в панель администратора</a></p>');
 ?>
 
 <?php
@@ -16,59 +16,59 @@ if (!$db_select) {
 mysqli_query($link, "SET names $db_charset");
 
 //добавления описания ....
-$artic = $_POST['artic'];
-$name = $_POST['name'];
-$name_model = $_POST['name_model'];
-$text = $_POST['text'];
-$price = $_POST['price'];
+$artic = isset($_POST['artic']);
+$name = isset($_POST['name']);
+$name_model = isset($_POST['name_model']);
+$text = isset($_POST['text']);
+$price = isset($_POST['price']);
 
-$s_1 = $_POST['s_1'];
-$length_1 = $_POST['length_1'];
-$volume_1 = $_POST['volume_1'];
+$s_1 = isset($_POST['s_1']);
+$length_1 = isset($_POST['length_1']);
+$volume_1 = isset($_POST['volume_1']);
 
-$s_2 = $_POST['s_2'];
-$length_2 = $_POST['length_2'];
-$volume_2 = $_POST['volume_2'];
+$s_2 = isset($_POST['s_2']);
+$length_2 = isset($_POST['length_2']);
+$volume_2 = isset($_POST['volume_2']);
 
-$s_3 = $_POST['s_3'];
-$length_3 = $_POST['length_3'];
-$volume_3 = $_POST['volume_3'];
+$s_3 = isset($_POST['s_3']);
+$length_3 = isset($_POST['length_3']);
+$volume_3 = isset($_POST['volume_3']);
 
-$s_4 = $_POST['s_4'];
-$length_4 = $_POST['length_4'];
-$volume_4 = $_POST['volume_4'];
+$s_4 = isset($_POST['s_4']);
+$length_4 = isset($_POST['length_4']);
+$volume_4 = isset($_POST['volume_4']);
 
-$s_5 = $_POST['s_5'];
-$length_5 = $_POST['length_5'];
-$volume_5 = $_POST['volume_5'];
+$s_5 = isset($_POST['s_5']);
+$length_5 = isset($_POST['length_5']);
+$volume_5 = isset($_POST['volume_5']);
 
-$s_6 = $_POST['s_6'];
-$length_6 = $_POST['length_6'];
-$volume_6 = $_POST['volume_6'];
+$s_6 = isset($_POST['s_6']);
+$length_6 = isset($_POST['length_6']);
+$volume_6 = isset($_POST['volume_6']);
 
-$s_7 = $_POST['s_7'];
-$length_7 = $_POST['length_7'];
-$volume_7 = $_POST['volume_7'];
+$s_7 = isset($_POST['s_7']);
+$length_7 = isset($_POST['length_7']);
+$volume_7 = isset($_POST['volume_7']);
 
-$s_8 = $_POST['s_8'];
-$length_8 = $_POST['length_8'];
-$volume_8 = $_POST['volume_8'];
+$s_8 = isset($_POST['s_8']);
+$length_8 = isset($_POST['length_8']);
+$volume_8 = isset($_POST['volume_8']);
 
-$s_9 = $_POST['s_9'];
-$length_9 = $_POST['length_9'];
-$volume_9 = $_POST['volume_9'];
+$s_9 = isset($_POST['s_9']);
+$length_9 = isset($_POST['length_9']);
+$volume_9 = isset($_POST['volume_9']);
 
-$s_10 = $_POST['s_10'];
-$length_10 = $_POST['length_10'];
-$volume_10 = $_POST['volume_10'];
+$s_10 = isset($_POST['s_10']);
+$length_10 = isset($_POST['length_10']);
+$volume_10 = isset($_POST['volume_10']);
 
-$_catalog_ = $_POST['table_categories'];
+$_catalog_ = isset($_POST['table_categories']);
 
 //и картинки ....
 if (!empty($_FILES['uploadfile']['name']))
 {
   
-  $uploaddir = $_POST['table_dir_img'];
+  $uploaddir = isset($_POST['table_dir_img']);
   $uploadfile = $uploaddir.basename($_FILES['uploadfile']['name']);
   if (!is_uploaded_file($_FILES['uploadfile']['tmp_name']))
   {
@@ -294,16 +294,13 @@ if (!empty($_FILES['uploadfile']['name']))
 
     <?php
     $uploaddir = '../Images/';
-    $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+    $uploadfile = $uploaddir . basename(isset($_FILES['userfile']['name']));
     echo '<pre>';
-    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+    if (move_uploaded_file(isset($_FILES['userfile']['tmp_name']), $uploadfile)) {
       echo "Файл корректен и был успешно загружен.\n";
     } else {
       echo "Возможная атака с помощью файловой загрузки!\n";
     }
-    echo 'Некоторая отладочная информация:';
-    print_r($_FILES);
-    print "</pre>";
     ?>
     
   </div>

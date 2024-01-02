@@ -1,9 +1,9 @@
 <?php
-$adminemail="dogsbomba@gmail.com";
+$adminemail="aleksej.eremenko579@gmail.com";
  
 $date=date("d.m.y");
 $time=date("H:i");
-$backurl="http://dogs-bomba.com.ua/#home";
+$backurl="https://dogsbomba.000webhostapp.com/#home";
 
 $name=$_POST['name'];
 $tel=$_POST['tel'];

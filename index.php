@@ -19,15 +19,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="Fonts/font-awesome/css/font-awesome.css">
 <link href="CSS/main.css" type="text/css" rel="stylesheet">
-<script src="JavaScript/cart.js"></script>
-<script src="JavaScript/jquery-3.1.1.min.js"></script>
-<script src="JavaScript/jquery-1.10.2.js"></script>
-<script src="JavaScript/main.js"></script>
+<script src="JavaScript/jquery-3.7.1.min.js"></script>
 
-<script type="text/javascript">$(document).ready(function(){
-$(window).scroll(function () {if ($(this).scrollTop() > 0) {$('#scroller').fadeIn();} else {$('#scroller').fadeOut();}});
-$('#scroller').click(function () {$('body,html').animate({scrollTop: 0}, 400); return false;});
-});</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(window).scroll(function () {if ($(this).scrollTop() > 0) {$('#scroller').fadeIn();} else {$('#scroller').fadeOut();}});
+        $('#scroller').click(function () {$('body,html').animate({scrollTop: 0}, 400); return false;});
+    });
+</script>
 	
 </head>
 <body>
@@ -76,30 +75,19 @@ $('#scroller').click(function () {$('body,html').animate({scrollTop: 0}, 400); r
 	</nav>
 	<div class="wrap-logo"></div>
 <div class="header-line">
-	<p><i class="fa fa-phone fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;+3 8 068-080-61-01</p>
-	<p><i class="fa fa-phone fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;+3 8 095-503-44-18</p>
+	<p><i class="fa fa-phone fa-1x" aria-hidden="true"></i>  068-080-61-01</p>
+	<p><i class="fa fa-phone fa-1x" aria-hidden="true"></i>  095-503-44-18</p>
 	<div id="smalcart">
 		<a href="#" class="cart-button" style="display: none;">
-		<span class="cart-button-quantity"></span>
-		<span class="cart-button-label"></span></a>
+		    <span class="cart-button-quantity"></span>
+		    <span class="cart-button-label"></span>
+		</a>
 	</div>
 </div>
-<script>
-  cartjs.initialize({
-    emailOrdersTo  : 'dogsbomba@gmail.com',
-    language       : 'russian',
-    currency       : 'грн.',
-
-    requireName    : true,
-    requirePhone   : true,
-    requireEmail   : true,
-    requireAddress : false,
-  })
-</script>
 
 <ul class="body_slides">
-<li></li>
-<li></li>
+    <li></li>
+    <li></li>
 </ul>
 
 </header>
@@ -134,6 +122,7 @@ $('#scroller').click(function () {$('body,html').animate({scrollTop: 0}, 400); r
 <img class="midl" src="Images/new year/midl_1.png" width="300">
 -->
 <img class="midl" src="Images/new year/logo_line.png" width="75%">
+
 <article id="catalogue">
 	<div class="main-info effect""><h1>Каталог товаров</h1>
 		<ul id="catalog">
@@ -290,18 +279,21 @@ $('#scroller').click(function () {$('body,html').animate({scrollTop: 0}, 400); r
 	</div>
 </article>
 
+<section class="section">
+	<div class="cart"></div>
+</section>
+
 <div id="scroller" class="b-top"><i class="fa fa-arrow-up fa-3x" aria-hidden="true"></i></div>
 
 <footer>
-	<div id="qoo-counter">
-		<p class="visits-views">Визиты:</p> <div id="qoo-counter-visits" style="color: #969696;"></div>
-		<p class="visits-views">Просмотры:</p> <div id="qoo-counter-views" style="color: #969696;"></div>
-	</div>
-	<script type="text/javascript" src="http://qoo.by/counter.js"></script>
 	<div class="footer-text">2013-2017 © <em>Dogs-Bomba</em></div>
-	<a class="log-in" href="/php/in/index.php" target="_blank"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
-
+	<a class="log-in" href="/php/in/index.php" target="_blank">
+	    <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+	</a>
 </footer>
+
+<script src="JavaScript/cart.js"></script>
+<script src="JavaScript/main.js"></script>
 
 </body>
 </html>

@@ -1,30 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Одежда для собак | Интернет магазин</title>
-    <link rel="stylesheet" href="/Fonts/font-awesome/css/font-awesome.css">
-    <link href="/CSS/main.css" type="text/css" rel="stylesheet">
-    <script src="/JavaScript/cart.js"></script>
-    <script src="/JavaScript/jquery-3.1.1.min.js"></script>
-    <script src="/JavaScript/jquery-1.10.2.js"></script>
-    <script src="/JavaScript/main.js"></script>
-</head>
-<body>
 <?php
 
 require_once "pass_with_db.php";
 
 $conn = mysqli_connect($db_host, $db_user, $db_pass, "$db_name");
+
 if (!$conn) {
     echo "Unable to connect to DB: " . mysql_error();
     exit;
 }
-
-
-// $sql = "SELECT artic, name, name_model, text,  price, img, s_1, length_1, volume_1, s_2, length_2, volume_2, s_3, length_3, volume_3, s_4, length_4, volume_4, s_5, length_5, volume_5, s_6, length_6, volume_6, s_7, length_7, volume_7, s_8, length_8, volume_8, s_9, length_9, volume_9, s_10, length_10, volume_10 
-//         FROM ".$_catalog_." 
-//         WHERE name='".$main_catalog."'";
         
 $sql = "SELECT artic, name, name_model, text,  price, img, s_1, length_1, volume_1, s_2, length_2, volume_2, s_3, length_3, volume_3, s_4, length_4, volume_4, s_5, length_5, volume_5, s_6, length_6, volume_6, s_7, length_7, volume_7, s_8, length_8, volume_8, s_9, length_9, volume_9, s_10, length_10, volume_10 
         FROM ".$_catalog_."";
@@ -38,25 +21,25 @@ if (mysqli_num_rows($result) == 0) {
 
 while ($row = mysqli_fetch_assoc($result)) {
 ?>
+
     <div class="wrap-product">
-    <a class="a" href="#<?php echo $row["artic"]; ?> "><img src=" <?php echo $row["img"]; ?> " width="200" height="170">
-    <div class="name-product"> <?php echo $row["name"]; ?> </div>
-    <div class="buy"><span class="buy-num"> <?php echo $row["price"]; ?> </span> грн</div>
-    <div class="loopa"><i class="fa fa-search fa-2x" aria-hidden="true"></i></div></a>
+        <a class="a" href="#<?php echo $row["artic"]; ?> "><img src=" <?php echo $row["img"]; ?> " width="200" height="170">
+        <div class="name-product"> <?php echo $row["name"]; ?> </div>
+        <div class="buy"><span class="buy-num"> <?php echo $row["price"]; ?> </span> грн</div>
+        <div class="loopa"><i class="fa fa-search fa-2x" aria-hidden="true"></i></div></a>
     </div>
 
     <div id="<?php echo $row["artic"]; ?>" class="modalDialog">
-        <div class="wrap-descript">
+        <div class="wrap-descript product">
             <a href="#close" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
             <div class="photo">
-                <img class="img-photo" src=" <?php echo $row["img"]; ?> ">
+                <img class="img-photo product__image" src=" <?php echo $row["img"]; ?> ">
             </div>
             <div class="wrap-text">
-                <div class="name-prod-mod"> <?php echo $row["name_model"]; ?> </div>
+                <div class="name-prod-mod product__name"> <?php echo $row["name_model"]; ?> </div>
                 <p>Описание:</p>
                 <p class="p-mod"> <?php echo $row["text"]; ?> </p>
-                <div class="price"> <?php echo $row["price"]; ?>  грн</div>
-
+                <div class="price product__price"> <?php echo $row["price"]; ?>  грн</div>
                 <table>
                     <tr>
                         <td class="td_artic">Артикул:</td>
@@ -67,34 +50,34 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <td class="td_buy">
                             <?php
                             if ($row["s_1"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_1"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_1"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_1"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_1"]."</button><br><br>";
                             }
                             if ($row["s_2"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_2"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_2"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_2"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_2"]."</button><br><br>";
                             }
                             if ($row["s_3"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_3"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_3"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_3"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_3"]."</button><br><br>";
                             }
                             if ($row["s_4"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_4"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_4"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_4"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_4"]."</button><br><br>";
                             }
                             if ($row["s_5"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_5"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_5"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_5"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_5"]."</button><br><br>";
                             }
                             if ($row["s_6"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_6"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_6"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_6"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_6"]."</button><br><br>";
                             }
                             if ($row["s_7"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_7"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_7"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_7"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_7"]."</button><br><br>";
                             }
                             if ($row["s_8"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_8"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_8"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_8"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_8"]."</button><br><br>";
                             }
                             if ($row["s_9"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_9"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_9"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_9"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_9"]."</button><br><br>";
                             }
                             if ($row["s_10"] == true) {
-                                echo "<a class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_10"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1' href='#'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_10"]."</a><br><br>";
+                                echo "<button class='cart-buy-button' data-name='".$row["artic"]." / ".$row["s_10"]." / ".$row["name"]."' data-price=' ".$row["price"]."' data-quantity='1'><i class='fa fa-shopping-cart  fa-2x' aria-hidden='true'></i>  ".$row["artic"]." / ".$row["s_10"]."</button><br><br>";
                             }
                             ?>
                         </td>
@@ -174,6 +157,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
         </div>
     </div>
-<?php } ?>
-</body>
-</html>
+<?php } 
+
+    // echo '<script type="text/javascript">';
+    // echo '    console.log(document.querySelector(".modalDialog"));';
+    // echo '    console.log("TEST");';
+    // echo '</script>';
+?>

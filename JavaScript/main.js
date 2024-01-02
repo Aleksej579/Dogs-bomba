@@ -1,12 +1,11 @@
-//loading content----------------------------------------------
-
+//loading content
 $(document).ready(function() {
     var hash = window.location.hash.substr(1);
     var href = $('#catalog  li a').each(function(){
         var href = $(this).attr('href');
         if(hash==href.substr(0,href.length-18)){
             var toLoad = hash+'.html #aside';
-            $('#aside-insert').load(toLoad)
+            $('#aside-insert').load(toLoad);
         } 
     });
     $('#catalog  li a').click(function(){
@@ -18,6 +17,15 @@ $(document).ready(function() {
     }
     function showNewContent() {
       $('#aside').show('normal',hideLoader());
+      
+        // var buttonBuy = $(".cart-buy-button");
+        // console.log(buttonBuy[0]);
+        // if (buttonBuy[0]) {
+        //     buttonBuy[0].click(function() {
+        //         alert( "Handler for .click() called." );
+        //     });
+        // }
+        
     }
     function hideLoader() {
       $('#load').fadeOut('normal');
@@ -26,9 +34,7 @@ $(document).ready(function() {
     });
 });
 
-'use strict';
-
-//preview categories---------------------------------
+//preview categories
 function show(id) {
     document.getElementById(id).style.display = "block";
 }
@@ -36,34 +42,32 @@ function hide(id) {
     document.getElementById(id).style.display = "none";
 }
 
-//slider--------------------------------------------------
+//slider
 $(function() {      
-  var width=$('.slider-box').width();                     // Ширина слайдера.
-      interval = 4000;                                    // Интервал смены слайдов.
+  var width=$('.slider-box').width();
+      interval = 4000;
  
-  $('.slider img:last').clone().prependTo('.slider');     // Копия последнего слайда помещается в начало.
-  $('.slider img').eq(1).clone().appendTo('.slider');     // Копия первого слайда помещается в конец.  
-  $('.slider').css('margin-left', -width);                // Контейнер .slider сдвигается влево на ширину одного слайда.
-  setInterval('animation()',interval);                    // Запускается функция animation(), выполняющая смену слайдов.
+  $('.slider img:last').clone().prependTo('.slider');
+  $('.slider img').eq(1).clone().appendTo('.slider');
+  $('.slider').css('margin-left', -width);
+  setInterval('animation()', interval);
 });
+
 function animation(){
- 
-  var margin = parseInt($('.slider').css('marginLeft'));  // Текущее смещение блока .slider
-      width=$('.slider-box').width(),                     // Ширина слайдера.
-      slidersAmount=$('.slider').children().length;       // Количество слайдов в слайдере.
-  if(margin!=(-width*(slidersAmount-1)))                  // Если текущий слайд не последний,
+  var margin = parseInt($('.slider').css('marginLeft'));
+      width=$('.slider-box').width(),
+      slidersAmount=$('.slider').children().length;
+  if(margin!=(-width*(slidersAmount-1)))
   {
-    margin=margin-width;                                  // то значение margin уменьшается на ширину слайда.
-  }else{                                                  // Если показан последний слайд,
-    $('.slider').css('margin-left', -width);              // то блок .slider возвращается в начальное положение,
+    margin=margin-width;
+  }else{
+    $('.slider').css('margin-left', -width);
     margin=-width*2;         
   }
-  $('.slider').animate({marginLeft:margin},1000);          // Блок .slider смещается влево на 1 слайд.
-};
+  $('.slider').animate({marginLeft:margin},1000);
+}
 
-
-//scrol--------------------------------------------------
-'use strict';
+//scroll
  $(document).ready(function(){
     $("#menu").on("click","a", function (event) {
         event.preventDefault();
@@ -72,4 +76,3 @@ function animation(){
         $('body,html').animate({scrollTop: top}, 800);
     });
 });
-//--------------------------------------
